@@ -1,0 +1,9 @@
+<div class="card-columns">
+  <div class="card m-2" style="width: 18rem;" *ngFor="let game of games">
+    <img src="{{ game.img }}" class="card-img-top" alt="{{ game.name }}">
+    <div class="card-body text-center">
+      <h5 class="card-title">{{ game.name }}</h5>
+      <a href="#" class="btn btn-primary mt-2">Ver más</a>
+    </div>
+  </div>
+</div>
