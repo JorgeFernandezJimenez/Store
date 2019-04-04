@@ -27,6 +27,10 @@ export class GameService {
     return this.http.get<Game[]>(this.urlApi + 'games/?category=' + category)
   }
 
+  public getAllByName(name: string): Observable<Game[]> {
+    return this.http.get<Game[]>(this.urlApi + 'games/?name=' + name);
+  }
+
   public insert(game: Game): Observable<Game> {
     return this.http.post<Game>(this.urlApi + 'games/', game);
   }

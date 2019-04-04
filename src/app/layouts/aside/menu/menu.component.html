@@ -1,0 +1,15 @@
+<div class="navbar navbar-light bg-light">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item text-center">
+      <a class="nav-link" routerLink="/">{{ user.firstname }}</a>
+    </li>
+  </ul>
+</div>
+<div class="my-5">
+  <div class="my-5">
+    <p><a routerLink="/management/profile">Perfil</a></p>
+    <p><a href="">Gestionar juegos</a></p>
+    <p><a href="">Gestionar categorías</a></p>
+    <p><button class="btn btn-outline-primary" (click)="logout()">Cerrar sesión</button></p>
+  </div>
+</div>

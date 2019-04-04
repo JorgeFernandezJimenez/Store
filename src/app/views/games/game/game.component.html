@@ -1,3 +1,15 @@
-<p>
-  game works!
-</p>
+<div class="card mb-3" style="width: 80%;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{ game.img }}" class="card-img" alt="{{ game.name }}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ game.name }}</h5>
+        <p class="card-text"><strong>Price:</strong> {{ game.price }}</p>
+        <p class="card-text"><strong>Category: </strong>{{ category.name }}</p>
+        <button class="btn btn-primary">Buy</button>
+      </div>
+    </div>
+  </div>
+</div>

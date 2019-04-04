@@ -4,12 +4,16 @@ import { GamesComponent } from './games.component';
 import { ListByCategoryComponent } from './list-by-category/list-by-category.component';
 import { GameComponent } from './game/game.component';
 import { ListComponent } from './list/list.component';
+import { ListByPatternComponent } from './list-by-pattern/list-by-pattern.component';
 
 const routes: Routes = [
     {path: '', component: GamesComponent, children: [
-      {path: ':category', component: ListByCategoryComponent},
-      {path: ':game', component: GameComponent},
-      {path: '', component: ListComponent}
+      {path: 'category/:id', component: ListByCategoryComponent},
+      {path: 'game/:id', component: GameComponent},
+      {path: 'games/:pattern', component: ListByPatternComponent},
+      {path: 'games', component: ListComponent},
+      {path: '', component: ListComponent},
+      {path: '**', redirectTo: '/', pathMatch: 'full'}
     ]}
 ];
 

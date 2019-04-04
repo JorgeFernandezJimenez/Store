@@ -3,7 +3,7 @@
     <img src="{{ game.img }}" class="card-img-top" alt="{{ game.name }}">
     <div class="card-body text-center">
       <h5 class="card-title">{{ game.name }}</h5>
-      <a href="#" class="btn btn-primary mt-2">Ver más</a>
+      <a [routerLink]="['/game/', game.id + 1]" class="btn btn-primary mt-2">Ver más</a>
     </div>
   </div>
 </div>

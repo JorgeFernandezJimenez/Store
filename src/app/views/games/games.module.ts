@@ -11,15 +11,17 @@ import { GamesComponent } from './games.component';
 import { CategoryService } from './categories/category.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from 'src/app/data.service';
+import { FormsModule } from '@angular/forms';
+import { ListByPatternComponent } from './list-by-pattern/list-by-pattern.component';
 
 @NgModule({
-  declarations: [ListComponent, ListByCategoryComponent, GameComponent, CategoriesComponent, GamesComponent],
+  declarations: [ListComponent, ListByCategoryComponent, GameComponent, CategoriesComponent, GamesComponent, ListByPatternComponent],
   imports: [
     CommonModule,
     HttpClientModule,
-    HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
-    GamesRoutingModule
+    GamesRoutingModule,
+    FormsModule
   ],
   exports: [],
   providers: [GameService, CategoryService, DataService]

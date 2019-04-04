@@ -18,4 +18,9 @@ export class CategoryService {
     return this.http.get<Category[]>(url);
   }
 
+  public getOne(id: number): Observable<Category> {
+    let url = this.urlApi +'categories/' + id;
+    return this.http.get<Category>(url);
+  }
+
 }

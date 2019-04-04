@@ -5,10 +5,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './data.service';
 import { LayoutsModule } from './layouts/layouts.module';
+import { AsideModule } from './layouts/aside/aside.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +19,7 @@ import { LayoutsModule } from './layouts/layouts.module';
     NgbModule,
     AngularFontAwesomeModule,
     LayoutsModule,
+    AsideModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

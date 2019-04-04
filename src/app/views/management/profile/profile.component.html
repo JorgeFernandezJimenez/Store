@@ -1,0 +1,142 @@
+<div class="jumbotron">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter email"
+        formControlName="email"
+      />
+      <small
+        class="alert-danger"
+        *ngIf="email.touched && email.errors && email.errors['required']"
+        >*Required</small
+      >
+      <small
+        class="alert-danger"
+        *ngIf="email.touched && email.errors && email.errors['email']"
+        >*Wrong format</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="firstname">First name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstname"
+        formControlName="firstname"
+        placeholder="Enter first name"
+      />
+      <small
+        class="alert-danger"
+        *ngIf="
+          firstname.touched && firstname.errors && firstname.errors['required']
+        "
+        >*Required</small
+      >
+      <small
+        class="alert-danger"
+        *ngIf="
+          firstname.touched && firstname.errors && firstname.errors['pattern']
+        "
+        >*Wrong format</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="surname">Surname</label>
+      <input
+        type="text"
+        class="form-control"
+        id="surname"
+        formControlName="surname"
+        placeholder="Enter surname"
+      />
+      <small
+        class="alert-danger"
+        *ngIf="surname.touched && surname.errors && surname.errors['required']"
+        >*Required</small
+      >
+      <small
+        class="alert-danger"
+        *ngIf="surname.touched && surname.errors && surname.errors['pattern']"
+        >*Wrong format</small
+      >
+      <small
+        class="alert-danger"
+        *ngIf="surname.touched && surname.errors && surname.errors['minlength']"
+        >*Too short</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="birthdate">Birthdate</label>
+      <input
+        type="date"
+        class="form-control"
+        id="birthdate"
+        formControlName="birthdate"
+      />
+      <small
+        class="alert-danger"
+        *ngIf="
+          birthdate.touched && birthdate.errors && birthdate.errors['required']
+        "
+        >*Required</small
+      >
+    </div>
+      <div class="form-group">
+        <label for="pass">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="pass"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <small
+          class="alert-danger"
+          *ngIf="
+            password.touched && password.errors && password.errors['required']
+          "
+          >*Required</small
+        >
+        <small
+          class="alert-danger"
+          *ngIf="
+            password.touched && password.errors && password.errors['minlength']
+          "
+          >*Too short</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="password1">Repeat password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password1"
+          placeholder="Repeat password"
+          formControlName="password1"
+        />
+        <small
+          class="alert-danger"
+          *ngIf="
+            password1.touched &&
+            password1.errors &&
+            password1.errors['required']
+          "
+          >*Required</small
+        >
+        <small
+          class="alert-danger"
+          *ngIf="
+            password1.touched && password1.errors && password1.errors['notSame']
+          "
+          >*Both passwords have to be equals</small
+        >
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      Update
+    </button>
+  </form>
+</div>

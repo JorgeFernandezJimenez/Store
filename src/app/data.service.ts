@@ -8,8 +8,8 @@ export class DataService implements InMemoryDbService {
 
   createDb() {
     let users = [
-      {id: 0, email: 'carlos.garcia@atmira.com', password: 'GArCia903', firstname: 'Carlos', surname: 'García Torres', birthdate: '1996-12-01'},
-      {id: 0, email: 'antonio.ramos@atmira.com', password: 'RamOs351', firstname: 'Antonio Jesús', surname: 'Ramos Madueño', birthdate: '1999-10-18'}
+      {id: 0, email: 'carlos.garcia@atmira.com', password: 'carlos1', firstname: 'Carlos', surname: 'García Torres', birthdate: '1996-12-01'},
+      {id: 0, email: 'antonio.ramos@atmira.com', password: 'ramos2', firstname: 'Antonio Jesús', surname: 'Ramos Madueño', birthdate: '1999-10-18'}
     ];
 
     let games: Game[] = [

@@ -1,0 +1,6 @@
+<ng-container *ngIf="user; else isAnonymous">
+  <app-menu [user]="user" (logOut)="logout()"></app-menu>
+</ng-container>
+<ng-template #isAnonymous>
+  <app-login (login)="login($event)"></app-login>
+</ng-template>
