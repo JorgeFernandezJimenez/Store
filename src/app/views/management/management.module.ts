@@ -7,14 +7,18 @@ import { GamesComponent } from './games/games.component';
 import { GameService } from '../games/game.service';
 import { CategoryService } from '../games/categories/category.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from 'src/app/data.service';
+import { UpdateComponent } from './games/update/update.component';
 
 @NgModule({
-  declarations: [ProfileComponent, GamesComponent],
+  declarations: [ProfileComponent, GamesComponent, UpdateComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     ManagementRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
   ],
   providers: [GameService, CategoryService]
 })

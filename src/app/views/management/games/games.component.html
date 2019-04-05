@@ -6,15 +6,20 @@
         <th scope="col">Price</th>
         <th scope="col">Stock</th>
         <th scope="col">Categoría</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let game of games">
+      <tr *ngFor="let game of games; let i = index">
         <th scope="row">{{ game.id + 1 }}</th>
         <td>{{ game.name }}</td>
         <td>{{ game.price }}</td>
         <td>{{ game.stock }}</td>
-        <td>{{ getCategory(game.category) }}</td>
+        <td>{{ categories[i].name }}</td>
+        <td>
+            <button class="btn btn-success py-1 pl-2 pr-1" (click)="update(game.id)"><i class="fas fa-edit"></i></button>
+            <button class="btn btn-danger px-2 py-1 mr-3" (click)="delete(game.id)"><i class="fas fa-trash-alt"></i></button>
+        </td>
       </tr>
     </tbody>
   </table>

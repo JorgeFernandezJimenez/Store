@@ -3,6 +3,7 @@ import { Game } from '../../games/game';
 import { GameService } from '../../games/game.service';
 import { Category } from '../../games/categories/category';
 import { CategoryService } from '../../games/categories/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -12,22 +13,35 @@ import { CategoryService } from '../../games/categories/category.service';
 export class GamesComponent implements OnInit {
 
   public games: Game[];
-  public category: Category;
+  public categories: Category[];
 
   constructor(
     private _gameService: GameService,
-    private _categoryService: CategoryService
-  ) { }
-
-  ngOnInit() {
-    this._gameService.getAll().subscribe(
-      response => this.games = response
-    )
+    private _categoryService: CategoryService,
+    private router: Router
+  ) {
+    this.categories = new Array<Category>();
   }
 
-  public getCategory(id: number): Category {
-    this._categoryService.getOne(id).subscribe(response => this.category = response);
-    return this.category;
+  ngOnInit() {
+    this._gameService.getAll().subscribe(response => {
+      this.games = response;
+      this.loadCategories();
+    });
+  }
+
+  private loadCategories() {
+    for(let game of this.games) {
+      this._categoryService.getOne(game.category).subscribe(response => this.categories.push(response));
+    }
+  }
+
+  public delete(id: number) {
+    this._gameService.delete(id);
+  }
+
+  public update(id: number) {
+    this.router.navigateByUrl('/management/game/update/' + id);
   }
 
 }
