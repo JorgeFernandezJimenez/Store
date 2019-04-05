@@ -4,9 +4,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DataService } from './data.service';
 import { LayoutsModule } from './layouts/layouts.module';
 import { AsideModule } from './layouts/aside/aside.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -17,9 +17,10 @@ import { AsideModule } from './layouts/aside/aside.module';
     AppRoutingModule,
     NgbModule,
     LayoutsModule,
-    AsideModule
+    AsideModule,
+    SweetAlert2Module.forRoot()
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -28,7 +28,6 @@ export class GameComponent implements OnInit {
     this._gameService.getOne(this.id).subscribe(
       response => {
         this.game = response;
-        console.log(response);
         this.getCategory();
       });
   }

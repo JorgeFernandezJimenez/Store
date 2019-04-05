@@ -24,8 +24,13 @@ export class GamesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadGames();
+  }
+
+  private loadGames() {
     this._gameService.getAll().subscribe(response => {
       this.games = response;
+      console.log(this.games);
       this.loadCategories();
     });
   }
@@ -37,11 +42,11 @@ export class GamesComponent implements OnInit {
   }
 
   public delete(id: number) {
-    this._gameService.delete(id);
+    this._gameService.delete(id).subscribe(response => this.loadGames());
   }
 
   public update(id: number) {
-    this.router.navigateByUrl('/management/game/update/' + id);
+    this.router.navigateByUrl('/management/game/' + id);
   }
 
 }

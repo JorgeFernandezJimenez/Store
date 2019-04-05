@@ -15,7 +15,6 @@ export class ProfileComponent implements OnInit {
   public form: FormGroup;
   public user: User;
   public passwordString: string;
-  @Output() public update = new EventEmitter();
 
   constructor(
     private fb: FormBuilder,
@@ -60,7 +59,6 @@ export class ProfileComponent implements OnInit {
     this.user.birthdate = this.birthdate.value;
     this.user.password = this.password.value;
     this._userService.update(this.user)
-    this._storageService.emitUser(this.user);
     this.router.navigateByUrl('/');
   }
 

@@ -15,7 +15,7 @@
         <td>{{ game.name }}</td>
         <td>{{ game.price }}</td>
         <td>{{ game.stock }}</td>
-        <td>{{ categories[i].name }}</td>
+        <td>{{ categories[i]?.name}}</td>
         <td>
             <button class="btn btn-success py-1 pl-2 pr-1" (click)="update(game.id)"><i class="fas fa-edit"></i></button>
             <button class="btn btn-danger px-2 py-1 mr-3" (click)="delete(game.id)"><i class="fas fa-trash-alt"></i></button>

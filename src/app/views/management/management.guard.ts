@@ -13,14 +13,13 @@ export class ManagementGuard implements CanActivate {
   constructor(
     private _storageService: StorageService,
     private router: Router
-  ) {
-    this._storageService.getIsAnonymous$().subscribe(response => this.isLogin = !response);
-  }
+  ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+    this._storageService.getIsAnonymous$().subscribe(response => this.isLogin = !response);
     if(this.isLogin){
       return true;
     }

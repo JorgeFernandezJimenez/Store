@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from 'src/app/data.service';
 import { UpdateComponent } from './games/update/update.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [ProfileComponent, GamesComponent, UpdateComponent],
@@ -18,7 +19,10 @@ import { UpdateComponent } from './games/update/update.component';
     ReactiveFormsModule,
     ManagementRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService),
+    HttpClientInMemoryWebApiModule.forRoot(DataService,{
+      dataEncapsulation: false
+    }),
+    SweetAlert2Module
   ],
   providers: [GameService, CategoryService]
 })

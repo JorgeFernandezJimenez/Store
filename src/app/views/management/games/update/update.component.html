@@ -1,3 +1,80 @@
-<p>
-  update works!
-</p>
+<div class="jumbotron" *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="update()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Enter name"
+          formControlName="name"
+        />
+        <small
+          class="alert-danger"
+          *ngIf="name.touched && name.errors && name.errors['required']"
+          >*Required</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          id="price"
+          formControlName="price"
+          placeholder="Enter price"
+        />
+        <small
+          class="alert-danger"
+          *ngIf="
+          price.touched && price.errors && price.errors['required']
+          "
+          >*Required</small
+        >
+        <small
+          class="alert-danger"
+          *ngIf="
+          price.touched && price.errors && price.errors['pattern']
+          "
+          >*Only numbers</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input
+          type="text"
+          class="form-control"
+          id="stock"
+          formControlName="stock"
+          placeholder="Enter stock"
+        />
+        <small
+          class="alert-danger"
+          *ngIf="stock.touched && stock.errors && stock.errors['required']"
+          >*Required</small
+        >
+        <small
+          class="alert-danger"
+          *ngIf="stock.touched && stock.errors && stock.errors['pattern']"
+          >*Only numbers</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select formControlName="category" id="category">
+          <option>Select category...</option>
+          <option value="{{ category.id }}" *ngFor="let category of categories">{{ category.name }}</option>
+        </select>
+        <small
+          class="alert-danger"
+          *ngIf="
+          category.touched && category.errors && category.errors['required']
+          "
+          >*Required</small
+        >
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        Update
+      </button>
+    </form>
+  </div>
